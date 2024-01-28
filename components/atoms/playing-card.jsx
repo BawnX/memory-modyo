@@ -118,7 +118,7 @@ function PlayingCardComponent({
       <Image
         src={src}
         alt=""
-        quality={100}
+        quality={70}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         style={{
@@ -130,6 +130,7 @@ function PlayingCardComponent({
             ? "playing-card__img playing-card--hidden"
             : "playing-card__img "
         }
+        priority
       />
     </article>
   );

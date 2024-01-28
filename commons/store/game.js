@@ -79,7 +79,7 @@ const useGameStore = create((set) => ({
   setReset: (reset) => set(() => ({ reset })),
   setIsComplete: (isComplete) => set(() => ({ isComplete })),
   resetGame: () => {
-    initialState.isComplete = true;
+    initialState.reset = true;
     return set(initialState);
   },
 }));
