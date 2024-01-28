@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Pixelify Sans Variable", system-ui, sans-serif;
+  }
+
+  :root {
+    --color-text-base: #05291b;
+    --color-accent: #3dc681;
+    --color-fill-base: #dad7cd;
+    --color-fill-accent: #77dea7;
+    --color-button-base: #1dac69;
+    --color-button-hover: #3dc681;
+    --color-button-text: #3dc681;
+    --color-button-hover-text: #edfcf3;
+    --color-card-base: #3dc681;
+  }
+
+  .theme-dark {
+    --color-text-base: #edfcf3;
+    --color-accent: #3dc681;
+    --color-fill-base: #05291b;
+    --color-fill-accent: #108b54;
+    --color-button-base: #1dac69;
+    --color-button-hover: #108b54;
+    --color-button-text: #edfcf3;
+    --color-card-base: #3dc681;
+  }
+
+  
+  html[data-full],
+  html[data-full] body {
+    overscroll-behavior-y: none;
+  }
+
+  body[data-no-scroll] {
+    overflow-y: hidden;
+    height: 100vh;
+  }
+
+  html[data-no-scroll], html[data-no-scroll] body {
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: theme("backgroundColor.skin.accent");
+    border: 5px solid transparent;
+    border-left: 0;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 13px;
+  }
+}
+
+@layer components {
+  .theme {
+    @apply dark:theme-dark bg-skin-base text-skin-base;
+  }
+
+  .button {
+    @apply hover:bg-skin-button-hover text-skin-button-text transition-all hover:text-skin-button-text-hover
+  }
+
+  .button--resize {
+    @apply hover:scale-105
+  }
+
+  .button--rounded {
+    @apply rounded-full p-1
+  }
+
+  .button--rectangle {
+    @apply w-full font-medium rounded-lg text-sm py-2.5 text-center
+  }
+
+  .input{
+    @apply bg-skin-accent text-skin-base placeholder-green-950 sm:text-sm rounded-lg focus:border-green-100 block w-full p-2.5 dark:bg-skin-accent dark:border-green-100 dark:placeholder-green-100 focus:animate-pulse
+  }
+
+  .input--valid{
+    @apply valid:bg-skin-accent
+  }
+
+  .input--invalid{
+    @apply invalid:bg-skin-base
+  }
+
+  .input--lavel{
+    @apply block mb-2 text-sm font-medium
+  }
+
+  .image-skeleton{
+    @apply text-gray-500 animate-pulse
+  }
+
+  .dialog {
+    @apply fixed left-0 top-0 w-full h-full overflow-auto
+  }
+
+  .dialog--body{
+    @apply space-y-4 md:space-y-6 m-6
+  }
+  
+  .form {
+    @apply space-y-4 md:space-y-6 m-6
+  }
+
+  .form--title{
+    @apply text-xl font-bold leading-tight tracking-tight md:text-2xl
+  }
+
+  .card {
+    @apply w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-skin-card-base dark:border-green-100
+  }
+
+  .playing-card {
+    @apply relative xl:w-10/12 xl:h-[280px] lg:w-9/12 lg:h-[250px] md:h-[200px] md:w-9/12 h-[200px] sm:w-9/12 w-10/12 my-2
+  }
+
+  .playing-card__back {
+    background-color: theme("backgroundColor.skin.card-base");
+    background-image: linear-gradient(transparent 50%, rgba(255, 255, 255, .5) 50%);
+    background-size: 50px 50px;
+    height: 100%;
+    width: auto;
+    @apply rounded-lg hover:scale-105 transition-all
+  }
+
+  .playing-card__img {
+    @apply rounded-lg select-none hover:scale-105 transition-all
+  }
+
+  .playing-card--hidden {
+    display: none;
+  }
+
+  .avatar{
+    @apply cursor-pointer hover:scale-110 transition ease-in-out delay-150
+  }
+
+  .receptacle{
+    @apply container mx-auto
+  }
+
+  .receptacle--one-col{
+    @apply flex flex-col items-center justify-center lg:py-0
+  }
+
+  .receptacle--header{
+    @apply grid grid-cols-2 p-4
+  }
+
+  .receptacle--header__section{
+    @apply flex justify-end
+  }
+
+  .receptacle--center{
+    @apply grid content-center h-[80vh] justify-items-center
+  }
+
+  .receptacle--board{
+    @apply grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 place-items-center gap-4
+  }
+
+  .receptacle--score{
+    @apply grid md:grid-cols-6 sm:grid-cols-4 grid-cols-1 p-4
+  }
+  
+  .receptacle--score--left{
+    @apply flex py-6 justify-center sm:justify-start
+  
+  }
+  .receptacle--score--right{
+    @apply grid lg:col-start-3 lg:col-end-7 md:col-start-3 md:col-end-7 sm:col-span-3  sm:grid-cols-4 grid-cols-1  py-4 place-items-center 
+  }
+  
+  .spin{
+    @apply inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]
+  }
+}
