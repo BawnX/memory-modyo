@@ -38,20 +38,17 @@ Project uses **npm scripts** for eases execution, testing and building.
 
 ### Docker
 
-| Command             | Action                     |
-| --------------------| -------------------------- |
-| fly launch          | prepare proyect for deploy |
-| fly deploy          | deploy proyect             |
-
-### fly.io
-
-
-
 | Command                                                                                         | Action       |
 | ----------------------------------------------------------------------------------------------- | ------------ |
 | docker build --build-arg ENV=<env> --tag <image_name> .                                         | docker build |
 | docker run -d -it -p <expose_port>:<container_app_port>/tcp --name <instance_name> <image_name> | docker exec  |
 
+### fly.io
+
+| Command             | Action                     |
+| --------------------| -------------------------- |
+| fly launch          | prepare proyect for deploy |
+| fly deploy          | deploy proyect             |
 
 ### Node Tools
 
