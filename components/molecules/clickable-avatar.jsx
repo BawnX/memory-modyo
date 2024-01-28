@@ -3,7 +3,6 @@
 import AvatarComponent from "@/components/atoms/avatar";
 import useUserStore from "@/commons/store/user";
 import GenerateRandomId from "@/commons/functions/avatar";
-import ImageSkeleton from "../atoms/image-skeleton";
 import useStore from "@/commons/store/store";
 
 /**
@@ -24,14 +23,6 @@ function ClickableAvatar() {
     const seed = GenerateRandomId(1, 10000000);
     userStore.setSeed(seed);
   };
-
-  if (userStore.seed === 0) {
-    return (
-      <span className="avatar">
-        <ImageSkeleton size={384} />
-      </span>
-    );
-  }
 
   return (
     <span className="avatar" onClick={generateAvatar}>
