@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+# Memory modyo test
+Project developed for the moyo technological challenge. 
+Which was deployed and here is the url https://memory-modyo.fly.dev.
+If you need to look for the changes it is in the [CHANGELOG](CHANGELOG.md)
+## Structure 💡
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+├── README.md
+├── CHANGELOG.md
+├── app/ # router bases folder
+│   ├── game/ # game page
+│   ├── home/ # home page
+│   └── global.css # css for proyext
+├── commons/
+│   ├── functions/ # common functions
+│   ├── repositories/ # common fetching
+│   └── store/ # common data
+├── components/
+│   ├── atoms/ # small components
+│   ├── molecules/ # medium components
+│   ├── providers/ # providers layout
+│   └── svg/ # svg imgase
+├── .eslintrc.json # eslint config and rules
+├── Dockerfile # build proyect
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Executing ⚙️
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Project uses **npm scripts** for eases execution, testing and building.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Command                    | Action                      |
+| -------------------------- | --------------------------- |
+| npm run dev                | dev server app              |
+| npm run build              | build the app               |
+| npm run start              | start server before build   |
+| npm run lint               | lint all proyect            |
 
-## Learn More
+### Docker
 
-To learn more about Next.js, take a look at the following resources:
+| Command             | Action                     |
+| --------------------| -------------------------- |
+| fly launch          | prepare proyect for deploy |
+| fly deploy          | deploy proyect             |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### fly.io
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command                                                                                         | Action       |
+| ----------------------------------------------------------------------------------------------- | ------------ |
+| docker build --build-arg ENV=<env> --tag <image_name> .                                         | docker build |
+| docker run -d -it -p <expose_port>:<container_app_port>/tcp --name <instance_name> <image_name> | docker exec  |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### Node Tools
+
+| Command                          | Action                    |
+| -------------------------------- | ------------------------- |
+| npm install -g npm@latest        | npm update                |
+| npm update --save/--save-dev     | soft updated for packages |
+| npx npm-check-updates -u         | hard update for packages  |
+| git config core.ignorecase false | git case-sensitive enable |
+
+## Linting 🧿
+
+Project uses two linters, for code formatting and code styling normalizing.
+
+-   **eslint**: linter with Airbnb React base config and some other additions.
+
+For correct interpretation of linters, is recommended to use [Visual Studio Code](https://code.visualstudio.com/) as IDE and install the plugins in .vscode folder at 'extensions.json', as well as use the config provided in 'settings.json'
