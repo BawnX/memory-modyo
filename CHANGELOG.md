@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/BawnX/memory-modyo/compare/v0.2.0...v0.2.1) (2024-01-28)
+
+
+### Bug Fixes
+
+* 🐛 error with commands in readme ([e8d12e4](https://github.com/BawnX/memory-modyo/commit/e8d12e4901f0cfa7ee2492d2707c585d096caa22))
+
 ## [0.2.0](https://github.com/BawnX/memory-modyo/compare/v0.1.0...v0.2.0) (2024-01-28)
 
 
